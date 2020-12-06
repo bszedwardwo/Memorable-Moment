@@ -1,24 +1,94 @@
-# README
+# 開発コンセプト
+ 画像を一つ一つコメント付きで、それをフォルダに保存できるアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ターゲット層
 
-Things you may want to cover:
+20代、30代の男女に、特にカップルや、女性
 
-* Ruby version
+## ニーズ
 
-* System dependencies
+昔取った写真をその時のコメント付きで保存できることによって、あとから見返したときにすぐにその時の情景を思い浮かべることができてる。
 
-* Configuration
+それによって、久しぶりにあった友人等に共有して懐かしむことや、カップルや結婚後の人たちが昔話をするときにも効果を発揮する。
 
-* Database creation
+## 将来性
 
-* Database initialization
+・スマホアプリ化し、もっと簡単に利用できるようにする。  
+・他人に共有することができるようにする。  
+・期間を選択し、ランダムにスライドショー形式に表示ができる。  
 
-* How to run the test suite
+# 実装機能
 
-* Services (job queues, cache servers, search engines, etc.)
+・ユーザー登録機能  
+・画像保存機能  
+・フォルダ機能  
+・お気に入り機能  
+・タグ付け機能  
+・コメント機能  
+・検索機能  
 
-* Deployment instructions
+# テーブル設計
 
-* ...
+## usersテーブル
+
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| nickname           | string     | null: false |
+| email              | string     | null: false |
+| encrypted_password | string     | null: false |
+
+### Assiciation
+- has_many :images
+- has_many :folders
+- has_many :comments
+
+## imagesテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| image    | string     | null: false                    |
+| favorite | boolean    | null: false                    |
+| user     | references | null: false, foreign_key: true |
+
+### Assiciation
+- belongs_to :user
+- has_many :folders, through: :image_folders
+- has_many :tags, through: :image_tags
+- has_one :comment
+
+## foldersテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| name     | string     | null: false                    |
+| favorite | boolean    | null: false                    |
+| user     | references | null: false, foreign_key: true |
+
+### Assiciation
+- belongs_to :user
+- has_many :images, through: :image_folders
+- has_many :tags, through: :folder_tags
+
+## tagsテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| name     | string     | null: false                    |
+| favorite | boolean    | null: false                    |
+| user     | references | null: false, foreign_key: true |
+
+### Assiciation
+- has_many :images, through: :image_tags
+- has_many :folders, through: :folder_tags
+
+## commentsテーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| content  | text       | null: false                    |
+| user     | references | null: false, foreign_key: true |
+| image    | references | null: false, foreign_key: true |
+
+### Assiciation
+- belongs_to :user
+- belongs_to :image
