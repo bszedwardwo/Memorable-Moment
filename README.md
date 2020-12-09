@@ -38,22 +38,23 @@
 | encrypted_password | string     | null: false |
 
 ### Assiciation
-- has_many :images
+- has_many :photos
 - has_many :folders
 - has_many :comments
 
-## imagesテーブル
+## photosテーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | image    | string     | null: false                    |
-| favorite | boolean    | null: false                    |
+| text     | text       |                                |
+| favorite | boolean    |                                |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
 - belongs_to :user
-- has_many :folders, through: :image_folders
-- has_many :tags, through: :image_tags
+- has_many :folders, through: :photo_folders
+- has_many :tags, through: :photo_tags
 - has_one :comment
 
 ## foldersテーブル
@@ -66,7 +67,7 @@
 
 ### Assiciation
 - belongs_to :user
-- has_many :images, through: :image_folders
+- has_many :photos, through: :photo_folders
 - has_many :tags, through: :folder_tags
 
 ## tagsテーブル
@@ -78,7 +79,7 @@
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
-- has_many :images, through: :image_tags
+- has_many :photos, through: :photo_tags
 - has_many :folders, through: :folder_tags
 
 ## commentsテーブル
@@ -87,8 +88,8 @@
 | -------- | ---------- | ------------------------------ |
 | content  | text       | null: false                    |
 | user     | references | null: false, foreign_key: true |
-| image    | references | null: false, foreign_key: true |
+| photo    | references | null: false, foreign_key: true |
 
 ### Assiciation
 - belongs_to :user
-- belongs_to :image
+- belongs_to :photo

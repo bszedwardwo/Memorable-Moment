@@ -1,0 +1,8 @@
+<% if @photo.exists? %>
+  <% @photo.each do |photo| %>
+    <%= image_tag photo.image.variant(resize: '500x500') %>
+    <% if photo.text.present? %>
+      <%= photo.text %>
+    <% end %>
+  <% end %>
+<% end %>
