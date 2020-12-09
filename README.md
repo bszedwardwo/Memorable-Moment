@@ -47,7 +47,7 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | image    | string     | null: false                    |
-| favorite | boolean    | null: false                    |
+| favorite | boolean    |                                |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
