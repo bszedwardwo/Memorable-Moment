@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'users/index'
   root 'users#index'
 
-  resources :images, only: [:new, :create]
+  resources :photos, only: [:new, :create]
 end
