@@ -47,6 +47,7 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | image    | string     | null: false                    |
+| text     | text       |                                |
 | favorite | boolean    |                                |
 | user     | references | null: false, foreign_key: true |
 
