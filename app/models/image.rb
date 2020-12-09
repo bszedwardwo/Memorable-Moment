@@ -3,4 +3,5 @@ class Image < ApplicationRecord
   has_many :folders, through: :image_folders
   has_many :tags, through: :image_tags
   has_one :comment
+  has_one_attached :image
 end
