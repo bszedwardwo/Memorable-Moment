@@ -4,4 +4,6 @@ class Photo < ApplicationRecord
   has_many :tags, through: :photo_tags
   has_one :comment
   has_one_attached :image
+
+  validates :image, presence: true
 end
