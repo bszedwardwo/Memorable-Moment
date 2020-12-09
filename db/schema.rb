@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_075533) do
   end
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
     t.boolean "favorite"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
