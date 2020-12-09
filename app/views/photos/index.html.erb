@@ -1,0 +1,8 @@
+<% if @photo.exists? %>
+  <% @photo.each do |photo| %>
+    <%= image_tag photo.image %>
+    <%# if photo.comment.exists? %>
+      <%# photo.comment %>
+    <%# end %>
+  <% end %>
+<% end %>
