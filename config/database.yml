@@ -50,5 +50,8 @@ test:
 production:
   <<: *default
   database: Memorable_Moment_production
-  username: Memorable_Moment
-  password: <%= ENV['MEMORABLE_MOMENT_DATABASE_PASSWORD'] %>
+  # username: Memorable_Moment
+  # password: <%= ENV['MEMORABLE_MOMENT_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
