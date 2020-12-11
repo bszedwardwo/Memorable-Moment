@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_021452) do
+ActiveRecord::Schema.define(version: 2020_12_11_023800) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2020_12_11_021452) do
     t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
+  create_table "photo_folders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "photo_id", null: false
+    t.bigint "folder_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["folder_id"], name: "index_photo_folders_on_folder_id"
+    t.index ["photo_id"], name: "index_photo_folders_on_photo_id"
+  end
+
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
     t.boolean "favorite"
@@ -66,5 +75,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_021452) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "folders", "users"
+  add_foreign_key "photo_folders", "folders"
+  add_foreign_key "photo_folders", "photos"
   add_foreign_key "photos", "users"
 end
