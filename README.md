@@ -62,7 +62,7 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | name     | string     | null: false                    |
-| favorite | boolean    | null: false                    |
+| favorite | boolean    |                                |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
@@ -75,7 +75,6 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | name     | string     | null: false                    |
-| favorite | boolean    | null: false                    |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
