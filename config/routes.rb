@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'users#index'
  
   resources :photos, only: [:new, :create, :index]
+  resources :folders, only: [:new, :create, :index]
 end
