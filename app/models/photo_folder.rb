@@ -1,0 +1,2 @@
+class PhotoFolder < ApplicationRecord
+end
