@@ -1,0 +1,5 @@
+<% if @folder.photos.present? %>
+  <% @folder.photos.each do |photo| %>
+    <%= link_to photo.photos.name %>
+  <% end %>
+<% end %>
