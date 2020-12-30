@@ -10,10 +10,14 @@ class FoldersController < ApplicationController
   def create
     @folder = Folder.new(folder_params)
     if @folder.save
-      redicrect_to root_path
+      redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @folder = Folder.find(params[:id])
   end
 
   private
