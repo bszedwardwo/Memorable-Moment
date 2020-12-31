@@ -1,5 +1,10 @@
-<% if @folder.photos.present? %>
-  <% @folder.photos.each do |photo| %>
-    <%= link_to photo.photos.name %>
+<div>
+  <%= @folder.name %>に入っている写真
+</div>
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+  <%# binding.pry %>
+    <%= link_to image_tag(photo.image.variant(resize: '500x500')), photo_path(photo.id) %>
+    <%= photo.text %>
   <% end %>
 <% end %>
