@@ -1,6 +1,7 @@
 class FoldersController < ApplicationController
   def index
-    @folder = Folder.all.order('created_at DESC')
+    @user = User.find(current_user.id)
+    @folder = @user.folders.order('created_at DESC')
   end
 
   def new
