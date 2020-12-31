@@ -18,6 +18,7 @@ class FoldersController < ApplicationController
 
   def show
     @folder = Folder.find(params[:id])
+    @photos = @folder.photos
   end
 
   private
