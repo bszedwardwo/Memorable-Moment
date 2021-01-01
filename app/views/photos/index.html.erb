@@ -1,8 +1,18 @@
 <% if @photo.exists? %>
   <% @photo.each do |photo| %>
-    <%= image_tag photo.image.variant(resize: '500x500') %>
+    <div>
+      <%= image_tag photo.image.variant(resize: '500x500') %>
+    </div>
     <% if photo.text.present? %>
+    <div>
       <%= photo.text %>
+    </div>
     <% end %>
   <% end %>
+<% end %>
+
+<% if @folder.present? %>
+  <div>
+    <%= link_to "#{@folder.name}に写真を追加する" %>
+  </div>
 <% end %>
