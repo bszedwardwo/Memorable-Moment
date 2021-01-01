@@ -1,6 +1,8 @@
 class PhotosController < ApplicationController
   def index
-    @photo = Photo.all.order('created_at DESC')
+    @user = User.find(current_user.id)
+    @photo = @user.photos
+    @folder = Folder.find(params[:folder_id])
   end
 
   def new

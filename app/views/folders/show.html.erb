@@ -1,0 +1,15 @@
+<div>
+  <%= @folder.name %>に入っている写真
+</div>
+<% if @photos.present? %>
+<div>
+  <% @photos.each do |photo| %>
+    <%= link_to image_tag(photo.image.variant(resize: '500x500')), photo_path(photo.id) %>
+    <%= photo.text %>
+  <% end %>
+<% end %>
+</div>
+
+<div>
+  <%= link_to '写真を追加する', folder_photos_path(@folder) %>
+</div>

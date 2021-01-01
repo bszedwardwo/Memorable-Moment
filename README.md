@@ -1,15 +1,22 @@
-# 開発コンセプト
- 画像を一つ一つコメント付きで、それをフォルダに保存できるアプリ
+# アプリケーション名
+ Memorable-Moment
+
+# アプリケーション概要
+ ・画像を一つ一つコメント付きで、それをフォルダに保存できる
+ ・フォルダに入れた画像をスライドショー形式で表示できる
+
+# テスト用アカウント
+ ・メールアドレス： a@a.com
+ ・パスワード：aaa111
 
 ## ターゲット層
+ 20代、30代の男女に、特にカップルや、女性
 
-20代、30代の男女に、特にカップルや、女性
+## 目指した課題解決
+画像をフォルダに入れて保存できるアプリは色々ありますが、画像一枚一枚にコメントをつけて、このいつのことだったかなぁみたいに使えるアプリがなかったので作りました。
 
-## ニーズ
-
-昔取った写真をその時のコメント付きで保存できることによって、あとから見返したときにすぐにその時の情景を思い浮かべることができてる。
-
-それによって、久しぶりにあった友人等に共有して懐かしむことや、カップルや結婚後の人たちが昔話をするときにも効果を発揮する。
+昔取った写真をその時のコメント付きで保存できることによって、あとから見返したときにすぐにその時の情景を思い浮かべることができます。
+それによって、久しぶりにあった友人等に共有して懐かしむことや、カップルや結婚後の人たちが昔話をするときにも効果を発揮することができます。
 
 ## 将来性
 
@@ -53,6 +60,7 @@
 
 ### Assiciation
 - belongs_to :user
+- has_many :photo_folders
 - has_many :folders, through: :photo_folders
 - has_many :tags, through: :photo_tags
 - has_one :comment
@@ -62,11 +70,12 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | name     | string     | null: false                    |
-| favorite | boolean    | null: false                    |
+| favorite | boolean    |                                |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation
 - belongs_to :user
+- has_many :photo_folders
 - has_many :photos, through: :photo_folders
 - has_many :tags, through: :folder_tags
 
@@ -75,7 +84,6 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | name     | string     | null: false                    |
-| favorite | boolean    | null: false                    |
 | user     | references | null: false, foreign_key: true |
 
 ### Assiciation

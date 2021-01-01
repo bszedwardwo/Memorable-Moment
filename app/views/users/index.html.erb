@@ -10,8 +10,12 @@
     <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
     <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
     <% end %>
-    <%= link_to 'folder', '#', class: '' %>
-    <%= link_to 'image', '#', class: '' %>
+    <%= link_to 'folders', folders_path, method: :GET, class: '' %>
+    <br>
+    <%= link_to 'new folder', new_folder_path, method: :GET, class: '' %>
+    <br>
+    <%= link_to 'photos', photos_path, method: :GET, class: '' %>
+    <br>
+    <%= link_to 'new photo', new_photo_path, method: :GET, class: '' %>
   </ul>
 </div>
-

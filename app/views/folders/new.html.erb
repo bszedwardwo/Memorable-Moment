@@ -1,0 +1,6 @@
+<h1>新規フォルダ作成</h1>
+<%= form_with model: @folder, method: :POST, local: true do |f|  %>
+  <%= f.label :name, 'フォルダ名を入れてください' %>
+  <%= f.text_field :name %>
+  <%= f.submit "作成" %>
+<% end %>
