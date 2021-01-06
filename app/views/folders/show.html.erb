@@ -1,7 +1,7 @@
 <div>
   <%= @folder.name %>に入っている写真
 </div>
-<% if @photos.present? %>
+<% if @photos %>
 <div>
   <% @photos.each do |photo| %>
     <%= link_to image_tag(photo.image.variant(resize: '500x500')), photo_path(photo.id) %>
