@@ -1,4 +1,5 @@
 <% if @photo.exists? %>
+<%= form_with url: photo_folders_path, local: true do |f| %>
   <% @photo.each do |photo| %>
     <% unless photo.folders.present? %>
     <div>
@@ -13,6 +14,7 @@
     <% end %>
     <% end %>
   <% end %>
+<% end %>
 <% end %>
 <% if @folder %>
   <div>
