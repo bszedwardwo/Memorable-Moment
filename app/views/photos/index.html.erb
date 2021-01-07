@@ -4,7 +4,7 @@
       <% unless photo.folders.present? %>
         <div>
           <label for='image'> <%= image_tag photo.image.variant(resize: '500x500') %> </label>
-          <input id='image' name="folder_photo[]" type='hidden' value=<% photo.id %> >
+          <input id='image' name="folder_photo[]" type='hidden' value='1' >
           <%# binding.pry %>
         </div>
         <% if photo.text %>
