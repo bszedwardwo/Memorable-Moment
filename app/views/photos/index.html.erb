@@ -1,20 +1,20 @@
 <% if @photo.exists? %>
-<%= form_with url: photo_folders_path, local: true do |f| %>
-  <% @photo.each do |photo| %>
-    <% unless photo.folders.present? %>
-    <div>
-      <label for='image'> <%= image_tag photo.image.variant(resize: '500x500') %> </label>
-      <input id='image' name="folder[photo_ids][]" type='hidden' value=<% photo.id %> >
-      <%# binding.pry %>
-    </div>
-    <% if photo.text %>
-      <div>
-        <%= photo.text %>
-      </div>
-    <% end %>
+  <%= form_with url: photo_folders_path, local: true do |f| %>
+    <% @photo.each do |photo| %>
+      <% unless photo.folders.present? %>
+        <div>
+          <label for='image'> <%= image_tag photo.image.variant(resize: '500x500') %> </label>
+          <input id='image' name="folder[photo_ids][]" type='hidden' value=<% photo.id %> >
+          <%# binding.pry %>
+        </div>
+        <% if photo.text %>
+          <div>
+            <%= photo.text %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 <% end %>
 <% if @folder %>
   <div>
