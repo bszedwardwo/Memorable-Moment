@@ -1,2 +1,3 @@
 class AddPhotosToFoldersController < ApplicationController
+  
 end
