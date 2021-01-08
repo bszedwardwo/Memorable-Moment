@@ -1,4 +1,0 @@
-class PhotoFoldersController < ApplicationController
-
-
-end
