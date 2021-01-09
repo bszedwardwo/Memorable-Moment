@@ -3,7 +3,7 @@ class AddPhotosToFoldersController < ApplicationController
     folder_data = params[:folder_photo]
     folder_data.each do |d|
       photo = Photo.find(d)
-      Folder.find().photos << photo
+      # Folder.find().photos << photo
     end
   end
 end
