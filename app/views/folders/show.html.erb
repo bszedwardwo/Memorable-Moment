@@ -5,7 +5,9 @@
 <div class='contents row'>
   <% @photos.each do |photo| %>
     <%= link_to image_tag(photo.image.variant(resize: '500x500')), photo_path(photo.id) %>
-    <%= photo.text %>
+    <% if %>
+      <%= photo.text %>
+    <% end %>
   <% end %>
 <% end %>
 </div>
