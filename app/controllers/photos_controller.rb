@@ -1,9 +1,8 @@
 class PhotosController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @photo = @user.photos.includes(:folders)
-    @folder_photo = 
-    @folder = Folder.find(params[:folder_id]) if params[:folder_id]
+    @photo = @user.photos
+    @folder = Folder.find(params[:folder_id])
   end
 
   def new
