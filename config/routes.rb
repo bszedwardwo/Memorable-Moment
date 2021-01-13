@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'users#index'
  
   resources :photos, only: [:new, :create, :index, :show]
-  resources :folders, only: [:new, :create, :index, :show] do
-    resources :photos, only: [:index, :new, :create]
+  resources :folders, only: [:new, :create, :index, :show, :update] do
+    resources :photos, only: [:index, :new, :create, :update]
   end
+  resources :photo_folders, only: [:create]
 end

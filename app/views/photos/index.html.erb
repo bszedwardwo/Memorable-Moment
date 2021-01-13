@@ -1,17 +1,23 @@
 <% if @photo.exists? %>
-  <% @photo.each do |photo| %>
-    <div>
-      <%= image_tag photo.image.variant(resize: '500x500') %>
-    </div>
-    <% if photo.text.present? %>
-    <div>
-      <%= photo.text %>
-    </div>
+  <%= form_with url: photo_folders_path, local: true do |f| %>
+    <% @photo.each do |photo| %>
+      <% unless photo.folders.present? %>
+        <div>
+          <label for='image'> <%= image_tag photo.image.variant(resize: '500x500') %> </label>
+          <input id='image' name="folder_photo[]" type='hidden' value=<%= photo.id %> >
+          <%# binding.pry %>
+        </div>
+        <% if photo.text %>
+          <div>
+            <%= photo.text %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
+    <%= f.submit '送信' %>
   <% end %>
 <% end %>
-
-<% if @folder.present? %>
+<% if @folder %>
   <div>
     <%= link_to "#{@folder.name}に写真を追加する" %>
   </div>
